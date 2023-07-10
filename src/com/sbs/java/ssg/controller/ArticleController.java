@@ -39,6 +39,9 @@ public class ArticleController extends Controller {
 		case "delete":
 			doDelete();
 			break;
+		default:
+			System.out.println("존재하지 않는 명령어 입니다.");
+			break;
 		}
 	}
 	
@@ -53,6 +56,7 @@ public class ArticleController extends Controller {
 	private int getArticleIndexById(int id) {
 		int i = 0;
 
+		
 		for (Article article : articles) {
 			if (article.id == id) {
 				return i;

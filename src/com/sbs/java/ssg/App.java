@@ -47,10 +47,6 @@ public class App {
 			} else if ( controllerName.equals("member") ) {
 				controller = memberController;
 			}
-			else {
-				System.out.println("존재하지 않는 명령어 입니다.");
-				continue;
-			}
 			
 			controller.doAction(command, actionMethodName);
 		}
