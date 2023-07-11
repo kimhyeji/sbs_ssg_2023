@@ -7,6 +7,7 @@ import com.sbs.java.ssg.container.Container;
 import com.sbs.java.ssg.dto.Article;
 import com.sbs.java.ssg.dto.Member;
 import com.sbs.java.ssg.service.ArticleService;
+import com.sbs.java.ssg.service.MemberService;
 import com.sbs.java.ssg.util.Util;
 
 public class ArticleController extends Controller {
@@ -14,10 +15,12 @@ public class ArticleController extends Controller {
 	private String command;
 	private String actionMethodName;
 	private ArticleService articleService;
+	private MemberService memberService;
 
 	public ArticleController(Scanner sc) {
 		this.sc = sc;
-		articleService = Container.articleService;		
+		articleService = Container.articleService;
+		memberService = Container.memberService;
 	}
 
 	public void doAction(String command, String actionMethodName) {
@@ -81,16 +84,7 @@ public class ArticleController extends Controller {
 		System.out.println("번호 |   작성자  | 조회 | 제목");
 		for (int i = forPrintArticles.size() - 1; i >= 0; i--) {
 			Article article = forPrintArticles.get(i);
-			String writerName = null;
-			
-			List<Member> members = Container.memberDao.members;
-			
-			for ( Member member : members ) {
-				if ( article.memberId == member.id ) {
-					writerName = member.name;
-					break;
-				}
-			}
+			String writerName = memberService.getMemberByNameId(article.memberId);
 
 			System.out.printf("%4d | %6s | %4d | %s\n", article.id, writerName, article.hit, article.title);
 		}

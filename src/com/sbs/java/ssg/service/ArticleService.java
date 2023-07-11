@@ -29,4 +29,8 @@ public class ArticleService {
 		articleDao.write(article);
 	}
 
+	public List<Article> getForPrintArticles() {
+		return articleDao.getForPrintArticles(null);
+	}
+
 }

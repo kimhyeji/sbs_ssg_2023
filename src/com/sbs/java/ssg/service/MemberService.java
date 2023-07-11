@@ -22,4 +22,8 @@ public class MemberService {
 	public void join(Member member) {
 		memberDao.join(member);
 	}
+
+	public String getMemberByNameId(int memberId) {
+		return memberDao.getMemberByNameId(memberId);
+	}
 }
