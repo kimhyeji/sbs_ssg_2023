@@ -27,6 +27,10 @@ public class ExportService {
 			html += "<div>날짜 : " + article.regDate + "</div>";
 			html += "<div>작성자 : " + writerName + "</div>";
 			html += "<div>제목 : " + article.title + "</div>";
+			if ( article.id > 1 ) {
+				html += "<div><a href=\"" + (article.id - 1) + ".html\">이전글</a></div>";
+			}
+			html += "<div><a href=\"" + (article.id + 1) + ".html\">다음글</a></div>";
 			Util.writeFileContents("exprtHtml/" + fileName, html);
 		}
 	} 

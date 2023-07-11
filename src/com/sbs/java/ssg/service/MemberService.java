@@ -20,7 +20,7 @@ public class MemberService {
 	}
 
 	public void join(Member member) {
-		memberDao.join(member);
+		memberDao.add(member);
 	}
 
 	public String getMemberByNameId(int memberId) {

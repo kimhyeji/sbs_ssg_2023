@@ -26,7 +26,7 @@ public class ArticleService {
 	}
 
 	public void write(Article article) {
-		articleDao.write(article);
+		articleDao.add(article);
 	}
 
 	public List<Article> getForPrintArticles() {

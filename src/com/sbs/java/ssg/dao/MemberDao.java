@@ -39,10 +39,6 @@ public class MemberDao extends Dao {
 		return members.get(index);
 	}
 
-	public void join(Member member) {
-		members.add(member);
-	}
-
 	public String getMemberByNameId(int id) {
 		for ( Member member : members ) {
 			if ( member.id == id) {
